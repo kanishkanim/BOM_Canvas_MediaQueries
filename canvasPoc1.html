@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas POC 1</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            display: block;
+            /* style property */
+            /* height: 100vh;
+            width: 100vw; */
+        }
+
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+</body>
+<script>
+    let canvas = document.querySelector("canvas");
+    // attribute property
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let ctx = canvas.getContext("2d"); //It is a kind of pen to draw 2D objects
+    ctx.strokeRect(10, 30, 500, 500); //(x,y,width,height)
+
+    // Creating a pen to draw things
+    ctx.beginPath();
+    ctx.moveTo(50, 50);
+    ctx.strokeStyle = "blue";
+    ctx.lineWidth = 5;
+    ctx.lineTo(150, 50);
+    ctx.stroke();
+
+    ctx.beginPath(); // used to create new ele with new properties
+    ctx.moveTo(50, 100);
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 8;
+    ctx.lineTo(150, 100);
+    ctx.stroke();
+</script>
+</html>

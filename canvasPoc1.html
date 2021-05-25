@@ -29,21 +29,68 @@
     canvas.height = window.innerHeight;
 
     let ctx = canvas.getContext("2d"); //It is a kind of pen to draw 2D objects
-    ctx.strokeRect(10, 30, 500, 500); //(x,y,width,height)
+
+    // let preX;
+    // let preY;
+    // let newX;
+    // let newY;
+    // let moveToNoted = false;
+    // canvas.addEventListener("mousemove", function (e) {
+    //     if(e.buttons == 1){
+    //         if(!moveToNoted){
+    //             ctx.beginPath();
+    //             ctx.moveTo(e.pageX, e.pageY);
+    //             ctx.strokeStyle = "pink";
+    //             ctx.lineWidth = 5;
+    //             moveToNoted = true;
+    //         }else{
+    //             ctx.lineTo(e.pageX, e.pageY);
+    //             ctx.stroke();
+    //         }
+    //     }else{
+    //         moveToNoted = false;
+    //     }
+    // });
+
+
+    // Drawing a rectangle as painted in MS paint
+
+    let startPoint;
+    canvas.addEventListener("mousemove", function (e) {
+        if(e.buttons == 1){
+            if(startPoint){
+                ctx.beginPath();
+                ctx.strokeStyle = "pink";
+                ctx.lineWidth = 5;
+                let width = e.pageX - startPoint[0];
+                let height = e.pageY - startPoint[1];
+                // clears the previous rectangle and draws the new one
+                ctx.clearRect(startPoint[0] - 1, startPoint[1] - 1, width, height);
+                ctx.strokeRect(startPoint[0], startPoint[1], width, height);
+            }else{
+                startPoint = [e.pageX, e.pageY];
+            }
+        }else{
+            startPoint = undefined;
+        }
+    });
+
+
+    //ctx.strokeRect(10, 30, 500, 500); //(x,y,width,height)
 
     // Creating a pen to draw things
-    ctx.beginPath();
-    ctx.moveTo(50, 50);
-    ctx.strokeStyle = "blue";
-    ctx.lineWidth = 5;
-    ctx.lineTo(150, 50);
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.moveTo(50, 50);
+    // ctx.strokeStyle = "blue";
+    // ctx.lineWidth = 5;
+    // ctx.lineTo(150, 50);
+    // ctx.stroke();
 
-    ctx.beginPath(); // used to create new ele with new properties
-    ctx.moveTo(50, 100);
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 8;
-    ctx.lineTo(150, 100);
-    ctx.stroke();
+    // ctx.beginPath(); // used to create new ele with new properties
+    // ctx.moveTo(50, 100);
+    // ctx.strokeStyle = "red";
+    // ctx.lineWidth = 8;
+    // ctx.lineTo(150, 100);
+    // ctx.stroke();
 </script>
 </html>

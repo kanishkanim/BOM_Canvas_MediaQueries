@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas POC 2</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            display: block;
+            /* style property */
+            /* height: 100vh;
+            width: 100vw; */
+        }
+
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+</body>
+<script>
+    let canvas = document.querySelector("canvas");
+    // attribute property
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let ctx = canvas.getContext("2d"); //It is a kind of pen to draw 2D objects
+   
+    let img = document.createElement();
+    img.src = "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2020%2F06%2F26%2Ftiny-white-kitten-873941684-2000.jpg";
+    img.addEventListener("load", function (){
+        ctx.drawImage(img, 0, 0, 100, 100);
+    });
+</script>
+</html>

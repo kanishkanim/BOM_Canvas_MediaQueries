@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.video-container{
+    height: 100vh;
+    background-color: gray;
+}
+
+#record-video {
+    position: fixed;
+    right: 6rem;
+    top: 36vh;
+}
+
+#click-picture{
+    position: fixed;
+    right: 6rem;
+    top: 50vh;
+}
+
+video {
+    height: 100%;
+    width: 100%;
+}
+
+
+

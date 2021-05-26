@@ -28,7 +28,7 @@
                 recordState = false;
                 vidRecordBtn.innerText = "Record";
             }
-        })
+        });
 
         navigator.mediaDevices.getUserMedia({video: true}).then(function(mediaStream) {
             videoPlayer.srcObject = mediaStream;
